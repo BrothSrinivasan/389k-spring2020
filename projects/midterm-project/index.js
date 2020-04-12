@@ -7,6 +7,8 @@ var dataUtil = require("./data-util")
 var moment = require("moment")
 var _ = require("underscore");
 
+dataUtil.restoreOriginalData();
+
 // Global
 var app = express();
 var _DATA = dataUtil.loadData().discourse;
@@ -15,7 +17,7 @@ var _DATA = dataUtil.loadData().discourse;
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.engine('handlebars', exphbs({ defaultLayout: 'main', partialsDir: "views/partials/" }));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use('/public', express.static('public'));
 
@@ -162,6 +164,6 @@ app.get("*", function(req, res) {
     res.render("error", {"message": "404 ERROR: PAGE NOT FOUND"});
 })
 
-app.listen(process.env.PORT || 3000, function() {
+app.listen(3000, function() {
     console.log('Listening on port 3000!');
 });
