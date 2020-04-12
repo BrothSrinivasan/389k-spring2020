@@ -3,8 +3,9 @@
  * Yep - that's literally it.
  */
 
-function helloWorld(){
-    throw new Error("unimplemented");
+function helloWorld()
+{
+    return "hello world";
 }
 
 /*
@@ -15,8 +16,9 @@ function helloWorld(){
  *  1.2 -> '1.44'
  */
 
-function squareToString(num){
-    throw new Error("unimplemented");
+function squareToString(num)
+{
+    return ""+(num * num);
 }
 
 /*
@@ -26,8 +28,16 @@ function squareToString(num){
  *  'fdas' -> 'sadf'
  */
 
-function reverseString(str){
-    throw new Error("unimplemented");
+function reverseString(str)
+{
+
+    var reverse = "";
+    for(var i = str.length-1; i >= 0; i--)
+    {
+	reverse += str.charAt(i);
+    }
+    
+    return reverse;
 }
 
  /*
@@ -45,8 +55,24 @@ function reverseString(str){
   * ^ This will return 3.6.
   */
 
- function avgLenOfVals(dict){
-     throw new Error("unimplemented");
+function avgLenOfVals(dict)
+{
+    var sum = 0, number = 0
+
+    if(Object.keys(dict).length != 0)
+    {
+	for(var name in dict)
+	{
+	    sum += dict[name].toString().length;
+	    number++;
+	}
+	
+	return sum/number;
+    }
+    else
+    {
+	return "0.0";
+    }
  }
 
 /*
@@ -61,8 +87,11 @@ function reverseString(str){
  *
  */
 
-function applyFunToArray(str, fun){
-    throw new Error("unimplemented");
+function applyFunToArray(str, fun)
+{
+    var arr = str.split(/,\s+/);
+
+    return fun(arr);
 }
 
 module.exports = {
